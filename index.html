@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raio-X da Juventude</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f6fb;
+  color: #243047;
+  line-height: 1.6;
+}
+header {
+  background: #173b68;
+  color: white;
+  padding: 55px 20px;
+  text-align: center;
+}
+header h1 { font-size: 36px; margin: 0; }
+main { max-width: 900px; margin: 30px auto; padding: 0 16px; }
+section {
+  background: white;
+  padding: 24px;
+  margin-bottom: 22px;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px #0000000c;
+}
+h2 { color: #176b87; }
+.grafico { max-width: 650px; margin: 20px auto; }
+footer { text-align: center; padding: 25px; color: #596579; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Raio-X da Juventude</h1>
+  <p>Dados que ajudam a transformar o futuro.</p>
+</header>
+
+<main>
+  <section>
+    <h2>Sobre o projeto</h2>
+    <p>O Raio-X da Juventude busca compreender as condições
+    de vida dos jovens, com foco na educação, inclusão digital,
+    situação socioeconômica e qualidade de vida.</p>
+  </section>
+
+  <section>
+    <h2>Objetivo</h2>
+    <p>Utilizar a análise de dados para identificar desafios
+    enfrentados pelos jovens e propor melhorias para a educação
+    e o bem-estar.</p>
+  </section>
+
+  <section>
+    <h2>Principais indicadores</h2>
+    <ul>
+      <li>Acesso à internet e recursos de estudo.</li>
+      <li>Tempo dedicado aos estudos.</li>
+      <li>Condições socioeconômicas.</li>
+      <li>Oportunidades educacionais e profissionais.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Gráfico 1 — Acesso à internet</h2>
+    <p>Distribuição do acesso à internet entre os jovens
+    da amostra demonstrativa.</p>
+    <div class="grafico">
+      <canvas id="internet"></canvas>
+    </div>
+  </section>
+
+  <section>
+    <h2>Gráfico 2 — Horas de estudo</h2>
+    <p>Quantidade de jovens por horas de estudo diário,
+    utilizando a amostra demonstrativa.</p>
+    <div class="grafico">
+      <canvas id="estudo"></canvas>
+    </div>
+  </section>
+
+  <section>
+    <h2>Propostas de impacto</h2>
+    <h3>Inclusão digital</h3>
+    <p>Ampliar o acesso a computadores e internet gratuita.</p>
+    <h3>Apoio educacional</h3>
+    <p>Incentivar mentorias e acompanhamento escolar.</p>
+    <h3>Preparação para o futuro</h3>
+    <p>Oferecer cursos de tecnologia e capacitação profissional.</p>
+  </section>
+
+  <section>
+    <h2>Metodologia e transparência</h2>
+    <p>O projeto utiliza Python para organizar, analisar e
+    visualizar dados, com possibilidade de incorporar fontes
+    públicas como IBGE e INEP.</p>
+    <p><strong>Importante:</strong> os gráficos apresentados
+    utilizam dados fictícios de 10 jovens, apenas para demonstrar
+    o funcionamento do projeto. Não representam estatísticas reais.</p>
+  </section>
+</main>
+
+<footer>
+  Projeto Raio-X da Juventude • Educação e impacto social
+</footer>
+
+<script>
+new Chart(document.getElementById('internet'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Com acesso', 'Sem acesso'],
+    datasets: [{
+      data: [7, 3],
+      backgroundColor: ['#2585b8', '#f2a65a'],
+      borderWidth: 0
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: 'bottom' }
+    }
+  }
+});
+
+new Chart(document.getElementById('estudo'), {
+  type: 'bar',
+  data: {
+    labels: ['1 hora', '2 horas', '3 horas', '4 horas'],
+    datasets: [{
+      label: 'Número de jovens',
+      data: [3, 3, 3, 1],
+      backgroundColor: '#2585b8',
+      borderRadius: 6
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: { stepSize: 1 }
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
